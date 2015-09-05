@@ -1,1 +1,8 @@
+*.DS_Store
+*.pyc
+*.log
 
+.idea
+
+node_modules
+npm-debug.log
