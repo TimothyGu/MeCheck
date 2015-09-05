@@ -5,7 +5,8 @@
  * @description :: Main Application Controller
  */
 
-var Model       = require('./schema.js'),
+var User_Model  = require('./user-logging-schema.js'),
+    Model       = require('./schema.js'),
     escapeRegex = require('escape-string-regexp')
 
 exports.index = function(req, res) {
@@ -26,6 +27,10 @@ exports.search = function(req, res) {
   
   var param = req.query.q,
       regex = new RegExp(escapeRegex(param).replace(/ /g, '.*'), 'i')
+  
+  User_Model.insert({ 'search_value' : 'test'}, function(err) {
+    if (!err) console.log('true')
+  })
   
   Model.find({ 'name': regex }, function(err, result) {
     if (!err) res.json(result)
