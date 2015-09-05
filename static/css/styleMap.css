@@ -67,3 +67,16 @@ main > .panel {
 #drugs{
 	border-right: none;
 }
+
+#header_drugs{
+	background: rgba(220, 239, 255, .3);
+	color: white;
+}
+
+#header_drugs h4{
+	text-align: center;
+}
+
+#map_container {
+  height: 100%;
+}
