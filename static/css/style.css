@@ -70,7 +70,7 @@ body {
 .main-field input[type="text"] {
 	background:0 0!important;
 	border:0;
-	box-shadow:inset 0 0 6.5px 0 rgb(255,255,255);
+	box-shadow:inset 0 0 6.5px 0 white;
 	color:#fff!important;
 	cursor:text;
 	float:left;
@@ -101,6 +101,8 @@ body {
 	height: 200px;
 	overflow: auto;
 	background: 0 0;
+	border: 0;
+	box-shadow:inset 0 0 6.5px 0 white;
 }
 
 .panel-body {
