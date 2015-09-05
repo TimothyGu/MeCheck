@@ -80,3 +80,22 @@ main > .panel {
 #map_container {
   height: 100%;
 }
+
+.place {
+	width: 204px;
+}
+
+.place h1 {
+	font-size: 13px;
+	margin: 0 0 1px;
+	font-weight: normal;
+}
+
+.place p {
+	font-weight: 300;
+	margin: 0;
+}
+
+.place .website {
+	padding-top: 6px;
+}
