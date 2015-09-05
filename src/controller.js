@@ -13,6 +13,14 @@ exports.index = function(req, res) {
   res.render('index')
 }
 
+/*
+ * On the user's request, grab the form input from the
+ * client and escape using a regular expression, finally,
+ * store in a variable called `regex`. Pass `regex` into a
+ * query string that queries the MongoDB database. Then return
+ * all the objects to template.
+ */
+
 exports.search = function(req, res) {
   res.status(200)
   
@@ -20,9 +28,15 @@ exports.search = function(req, res) {
       regex = new RegExp(escapeRegex(param).replace(/ /g, '.*'), 'i')
   
   Model.find({ 'name': regex }, function(err, result) {
-    if (!err) res.render('search', { objects: result })
+    if (!err) res.json(result)
   })
 }
+
+/*
+ * On the user's request, grab the object with ID that matches
+ * the previously selected object. Then return the single object
+ * to the template.
+ */
 
 exports.treatment = function(req, res) {
   res.status(200)

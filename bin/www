@@ -2,8 +2,12 @@
 
 var app = require('../src/app')
 
-var port = process.env.PORT || 8080
+var host    = '0.0.0.0',
+    port    = process.env.PORT || 80
 
 app.listen(port, function(err, req, res) {
-  if (!err) console.log("listening on port", port)
+  if (!err)
+    console.log("listening at %s on %s", host, port)
+  else
+    throw err;
 })

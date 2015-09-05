@@ -10,13 +10,13 @@ var Log_User_Account = new Schema({
   lon: String
 })
 
-module.exports = mongoose.model('Insert', Insert)
+module.exports = mongoose.model('Insert', Log_User_Account)
  
-var Test = new Schema({
+var Query = new Schema({
   id: ObjectId,
   name: String,
   description: String,
   treatment: String
 }, { collection: 'illness' })
 
-module.exports = mongoose.model('Test', Test)
+module.exports = mongoose.model('Query', Query)

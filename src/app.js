@@ -9,7 +9,7 @@ var express    = require('express'),
 var app = module.exports = express()
 
 try {
-  mongoose.connect('mongodb://localhost:27017/pennapps-fall-2015')
+  mongoose.connect('mongodb://45.79.167.179:27017/pennapps-fall-2015')
 } catch(e) {
   console.log(e)
 }
