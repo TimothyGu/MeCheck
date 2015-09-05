@@ -59,7 +59,7 @@ exports.treatment = function(req, res) {
   var param = req.params.id
 
   Model.findOne({ '_id': param }, function(err, result) {
-    if (!err) res.render('treatment', { object: result })
+    if (!err) res.render('treatment', { result: result })
   })
 }
 
