@@ -19,6 +19,20 @@ function initMap () {
       map.setCenter(pos)
       map.setZoom(12)
 
+      var curLocIcon = {
+        url: '/img/current-location.svg',
+        size: new google.maps.Size(22, 22),
+        origin: new google.maps.Point(0, 0),
+        anchor: new google.maps.Point(11, 11)
+      }
+
+      new google.maps.Marker({
+        position: pos,
+        map: map,
+        icon: curLocIcon,
+        title: 'Current location'
+      })
+
       var request = {
         location: pos,
         radius: 10000,
