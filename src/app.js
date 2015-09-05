@@ -3,10 +3,13 @@ var express    = require('express'),
     mongoose   = require('mongoose'),
     logger     = require('morgan'),
     bodyParser = require('body-parser'),
-    path       = require('path')
+    path       = require('path'),
+    fs         = require('fs')
 
+var GOOGLE_API_KEY = fs.readFileSync('google-key', 'utf8').trim()
 
 var app = module.exports = express()
+app.locals.GOOGLE_API_KEY = GOOGLE_API_KEY
 
 try {
   mongoose.connect('mongodb://45.79.167.179:27017/pennapps-fall-2015')

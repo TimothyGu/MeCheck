@@ -67,3 +67,7 @@ main > .panel {
 #drugs{
 	border-right: none;
 }
+
+#map_container {
+  height: 100%;
+}
