@@ -3,7 +3,7 @@ var mongoose = require('mongoose')
 var Schema   = mongoose.Schema,
     ObjectId = Schema.ObjectId
  
-var Test = new Schema({
+var Query = new Schema({
   id: ObjectId,
   name: String,
   description: String,

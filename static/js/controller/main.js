@@ -18,6 +18,4 @@ app.controller('results', ['$scope', '$http', function($scope, $http) {
 	$scope.focus = function ($event) {
 		$scope.fullScreen = true;
 	}
-
-
 }])
