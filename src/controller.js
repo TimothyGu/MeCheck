@@ -28,7 +28,7 @@ exports.search = function(req, res) {
   var param = req.query.q,
       regex = new RegExp(escapeRegex(param).replace(/ /g, '.*'), 'i')
   
-  User_Model.insert({ 'search_value' : 'test'}, function(err) {
+  new User_Model({ search_value: param, lat: 'NULL', lon: 'NULL'}).save(function(err) {
     if (!err) console.log('true')
   })
   
@@ -50,6 +50,14 @@ exports.treatment = function(req, res) {
 
   Model.findOne({ '_id': param }, function(err, result) {
     if (!err) res.render('treatment', { object: result })
+  })
+}
+
+exports.users = function(req, res) {
+  res.status(200)
+
+  User_Model.find({}, function(err, result) {
+    if (!err) res.json(result)
   })
 }
 
