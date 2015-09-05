@@ -40,9 +40,9 @@
           <input type="submit" value="Search" class="btn btn-default pull-right" />
         </fieldset>
       </form>
-      <div class="panel panel-default panel-transparent">
+      <div id="search_results" ng-class="'panel panel-default panel-transparent'">
         <!-- <div class="panel"> -->
-          <div id="search_form" ng-repeat="result in results">
+          <div ng-repeat="result in results">
             <div class="panel-body">
               <h4>{{result.name}}</h4>
               <a ng-href="/treatment/{{result._id}}">Treatment</a>
@@ -51,6 +51,7 @@
         <!-- </div> -->
      </div>
     </main>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
   <script src="js/controller/main.js"></script>
 </body>
