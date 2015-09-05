@@ -77,3 +77,6 @@ main > .panel {
 	text-align: center;
 }
 
+#map_container {
+  height: 100%;
+}
