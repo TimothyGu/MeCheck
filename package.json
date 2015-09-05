@@ -4,9 +4,9 @@
   "main": "app.js",
   "dependencies": {
     "body-parser": "^1.13.3",
+    "ejs": "^2.3.3",
     "express": "^4.13.3",
     "flash": "^1.1.0",
-    "jade": "^1.11.0",
     "mongoose": "^4.1.5",
     "morgan": "^1.6.1",
     "passport": "^0.3.0"

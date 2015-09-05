@@ -1,5 +1,5 @@
-var router = module.exports = require('express').Router()
-var controller = require('../controller')
+var router = module.exports = require('express').Router(),
+    controller = require('./controller')
 
 router.get('/', controller.index)
 router.get('/treatment/:id', controller.treatment)

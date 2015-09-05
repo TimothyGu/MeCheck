@@ -4,43 +4,41 @@
  * @module :: Controller
  * @description ::
  *
+ * Add a path to the file & inject meta data later
  */
 
 module.exports = exports;
 
 exports.index = function(req, res) {
   res.status(200)
-  res.render('') // Path to the index template
-                 // Bring in injection later
+  res.render('index') // Path to the index template
+                      // Bring in injection later
 }
 
 exports.treatment = function(req, res)
 { // Grabbing `id` from URL ...
   res.status(200)
-  res.render('') // Path to the treatment template
-                 // Bring in injection later
+  res.render('treatment')
 }
 
 exports.map = function(req, res) {
   res.status(200)
-  res.render('') // Path to the treatment template
-                 // Bring in injection later
+  res.render('map')
 }
 
-exports.SOMEARGUMENT = function(req, res) {
-  res.status(200)
-  res.render('') // Path to the treatment template
-                 // Bring in injection later
-}
+// exports.SOMEARGUMENT = function(req, res) {
+//  res.status(200)
+//  res.render('')
+// }
 
 exports.statusNotFound = function(req, res) {
   res.status(404)
-  res.send('page not found')
+  res.render('404')
   res.next()
 }
 
 exports.statusInternalServerError = function(err, req, res) {
   res.status(err || 500)
-  res.send('page not found')
+  res.render('500')
   res.next()
 }
