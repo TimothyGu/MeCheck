@@ -26,13 +26,23 @@ exports.search = function(req, res) {
   res.status(200)
   
   var param = req.query.q,
-      regex = new RegExp(escapeRegex(param).replace(/ /g, '.*'), 'i')
+      regex = new RegExp(escapeRegex(param).replace(/ /g, '|'), 'i')
   
   new User_Model({ search_value: param, lat: 'NULL', lon: 'NULL'}).save(function(err) {
     if (!err) console.log('true')
   })
   
-  Model.find({ 'name': regex }, function(err, result) {
+  var query = {
+    $or: [
+      { name: regex },
+      {
+        symptoms: {
+          $in: [ regex ]
+        }
+      }
+    ]
+  };
+  Model.find(query, function(err, result) {
     if (!err) res.json(result)
   })
 }
