@@ -1,7 +1,7 @@
 /*
  * Master Controller -
  *
- * @module :: Controller
+ * @module      :: Controller
  * @description :: Main Application Controller
  */
 
@@ -27,10 +27,10 @@ exports.search = function(req, res) {
 exports.treatment = function(req, res) {
   res.status(200)
 
-  var param = result._id
+  var param = req.params.id
 
   Model.findOne({ '_id': param }, function(err, result) {
-    if (!err) res.render('treatment', { description: 'result' })
+    if (!err) res.render('treatment', { object: result })
   })
 }
 
