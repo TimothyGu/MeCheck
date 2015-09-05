@@ -10,4 +10,4 @@ var Test = new Schema({
   treatment: String
 }, { collection: 'illness' })
 
-module.exports = mongoose.model('Test', Test)
+module.exports = mongoose.model('Query', Query)
