@@ -1,4 +1,4 @@
-var app = angular.module('treatment', [])
+var app = angular.module('main', [])
 $('#search_results').hide()
 app.controller('results', ['$scope', '$http', function($scope, $http) {
 	$scope.fullScreen = false;
