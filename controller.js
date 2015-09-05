@@ -7,18 +7,33 @@
  * Add a path to the file & inject meta data later
  */
 
-module.exports = exports;
+var Model       = require('./schema.js'),
+    escapeRegex = require('escape-string-regexp')
 
 exports.index = function(req, res) {
   res.status(200)
-  res.render('index') // Path to the index template
-                      // Bring in injection later
+  res.render('index')
 }
 
-exports.treatment = function(req, res)
-{ // Grabbing `id` from URL ...
+exports.search = function(req, res) {
   res.status(200)
-  res.render('treatment')
+  
+  var param = req.query.q,
+      regex = new RegExp(escapeRegex(param).replace(/ /g, '.*'), 'i')
+  
+  Model.find({ 'name': regex }, function(err, result) {
+    if (!err) res.render('search', { test: result })
+  })
+}
+
+exports.treatment = function(req, res) {
+  res.status(200)
+
+  var param = result._id
+
+  Model.findOne({ '_id': param }, function(err, result) {
+    if (!err) res.render('treatment', { description: 'result' })
+  })
 }
 
 exports.map = function(req, res) {
@@ -26,19 +41,14 @@ exports.map = function(req, res) {
   res.render('map')
 }
 
-// exports.SOMEARGUMENT = function(req, res) {
-//  res.status(200)
-//  res.render('')
-// }
-
-exports.statusNotFound = function(req, res) {
+exports.statusNotFound = function(req, res, next) {
   res.status(404)
   res.render('404')
-  res.next()
+  next()
 }
 
-exports.statusInternalServerError = function(err, req, res) {
+exports.statusInternalServerError = function(err, req, res, next) {
   res.status(err || 500)
   res.render('500')
-  res.next()
+  next()
 }

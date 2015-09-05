@@ -2,16 +2,24 @@
   "name": "no-name",
   "version": "0.0.0",
   "main": "app.js",
+  "scripts": {
+    "start": "node bin/www"
+  },
   "dependencies": {
     "body-parser": "^1.13.3",
     "ejs": "^2.3.3",
+    "escape-string-regexp": "^1.0.3",
     "express": "^4.13.3",
     "flash": "^1.1.0",
     "mongoose": "^4.1.5",
     "morgan": "^1.6.1",
     "passport": "^0.3.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "chai": "^3.2.0",
+    "mocha": "^2.3.0",
+    "supertest": "^1.1.0"
+  },
   "license": "",
   "engines": {
     "node": "0.12.x",
