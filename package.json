@@ -1,0 +1,12 @@
+{
+  "name": "no-name",
+  "version": "0.0.0",
+  "main": "app.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "license": "",
+  "engines": {
+    "node": "0.12.x",
+    "npm": "2.1.x"
+  }
+}
