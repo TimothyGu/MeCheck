@@ -20,7 +20,7 @@ exports.search = function(req, res) {
       regex = new RegExp(escapeRegex(param).replace(/ /g, '.*'), 'i')
   
   Model.find({ 'name': regex }, function(err, result) {
-    if (!err) res.render('search', { objects: result })
+    if (!err) res.json(result)
   })
 }
 
