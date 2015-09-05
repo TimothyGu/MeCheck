@@ -5,7 +5,9 @@ var Schema   = mongoose.Schema,
  
 var Test = new Schema({
   id: ObjectId,
-  name: String
-}, { collection: 'test' })
+  name: String,
+  description: String,
+  treatment: String
+}, { collection: 'illness' })
 
 module.exports = mongoose.model('Test', Test)

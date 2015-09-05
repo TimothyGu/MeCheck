@@ -2,9 +2,7 @@
  * Master Controller -
  *
  * @module :: Controller
- * @description ::
- *
- * Add a path to the file & inject meta data later
+ * @description :: Main Application Controller
  */
 
 var Model       = require('./schema.js'),
@@ -22,7 +20,7 @@ exports.search = function(req, res) {
       regex = new RegExp(escapeRegex(param).replace(/ /g, '.*'), 'i')
   
   Model.find({ 'name': regex }, function(err, result) {
-    if (!err) res.render('search', { test: result })
+    if (!err) res.render('search', { objects: result })
   })
 }
 
