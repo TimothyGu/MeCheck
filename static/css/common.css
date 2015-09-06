@@ -47,14 +47,6 @@ body {
 
 .header-wrapper h1 {
 	color:#fff;
-	font-size:8em;
 	font-weight:400;
 	text-transform:uppercase;
-}
-
-
-
-.main {
-	height:auto;
-	width:auto;
 }

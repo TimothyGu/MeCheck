@@ -6,7 +6,7 @@
  */
 
 var User_Model  = require('./user-logging-schema.js'),
-    Model       = require('./schema.js'),
+    Illness     = require('./schema.js'),
     escapeRegex = require('escape-string-regexp')
 
 exports.index = function(req, res) {
@@ -27,7 +27,6 @@ exports.search = function(req, res, next) {
   
   var param = req.query.q.trim(),
       regex = new RegExp(escapeRegex(param).replace(/ /g, '|'), 'i')
-console.log(regex)
   
   new User_Model({ search_value: param, lat: 'NULL', lon: 'NULL'}).save(function(err) {
     if (!err) console.log('true')
@@ -43,7 +42,7 @@ console.log(regex)
       }
     ]
   }
-  Model.find(query, function(err, result) {
+  Illness.find(query, function(err, result) {
     if (err) return next(err)
     res.json(result)
   })
@@ -55,21 +54,23 @@ console.log(regex)
  * to the template.
  */
 
-exports.treatment = function(req, res) {
+exports.treatment = function(req, res, next) {
   res.status(200)
 
   var param = req.params.id
 
-  Model.findOne({ '_id': param }, function(err, result) {
-    if (!err) res.render('treatment', { result: result })
+  Illness.findOne({ '_id': param }, function(err, result) {
+    if (err) return next(err)
+    res.render('treatment', { result: result })
   })
 }
 
-exports.users = function(req, res) {
+exports.users = function(req, res, next) {
   res.status(200)
 
   User_Model.find({}, function(err, result) {
-    if (!err) res.json(result)
+    if (err) return next(err)
+    res.json(result)
   })
 }
 
@@ -81,11 +82,9 @@ exports.map = function(req, res) {
 exports.statusNotFound = function(req, res, next) {
   res.status(404)
   res.render('404')
-  next()
 }
 
 exports.statusInternalServerError = function(err, req, res, next) {
   res.status(err || 500)
   res.render('500')
-  next()
 }

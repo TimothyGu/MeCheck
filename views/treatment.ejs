@@ -37,13 +37,29 @@
     <main role="main" aria-label="" class="wrapper main">
       <div id="drugs" class="panel panel-default col-md-4">
         <div class="panel-heading">
-          <header id="header_drug"><h4>Treatment Options</h4></header>
+          <header id="header_drug"><h4><%= result.name[0].toUpperCase() + result.name.slice(1) %></h4></header>
         </div>
         <ol class="list-group">
-          <li class="list-group-item"><h4><%= result.name %></h4></li>
+          <li class="list-group-item"><h4>Description</h4></li>
+          <li class="list-group-item"><p><%= result.description %></p></li>
+        </ol>
+        <ol class="list-group">
+          <li class="list-group-item"><h4>Symptoms</h4></li>
+          <% result.symptoms.forEach(function (symptom) { %>
+            <li class="list-group-item"><%= symptom %></li>
+          <% }) %>
+        </ol>
+        <ol class="list-group">
+          <li class="list-group-item"><h4>Treatment Options</h4></li>
+          <% result.treatment.forEach(function (treatment) { %>
+            <li class="list-group-item"><%= treatment %></li>
+          <% }) %>
         </ol>
       </div><!--
    --><div id="map" class="panel panel-default col-md-8">
+        <div class="panel-heading">
+          <header id="header_pharmacies"><h4>Pharmacies Closest to You</h4></header>
+        </div>
         <div id="map_container"></div>
       </div>
     </main>

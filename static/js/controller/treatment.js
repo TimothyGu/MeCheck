@@ -1,5 +1,9 @@
 $('main').height(window.innerHeight - $('header').height() - $('fieldset').outerHeight(true) - 25)
 
+$(window).resize(function () {
+  $('main').height(window.innerHeight - $('header').height() - $('fieldset').outerHeight(true) - 25)
+})
+
 function sanitizeHtml (str) {
   return $('<p></p>').text(str)[0].innerHTML
 }

@@ -2,7 +2,6 @@ var app = angular.module('main', [])
 $('#search_results').hide()
 app.controller('results', ['$scope', '$http', function($scope, $http) {
 	$scope.fullScreen = false;
-	$scope.searching = false;
 
 	$http.get('https://data.phila.gov/resource/9hed-4ffe.json').success(function(response) {
 		console.log('lat: '+response[0].location_1.latitude)
@@ -19,14 +18,23 @@ app.controller('results', ['$scope', '$http', function($scope, $http) {
 
 	$scope.blur = function ($event) {
 		if ($scope.text) {
+			$scope.fullScreen = true
 			return
 		}
+		$scope.fullScreen = false
 		$('#search_results').slideUp()
 	}
 
 	$scope.focus = function ($event) {
-		$scope.searching = true;
-		$('#search_results').height(window.innerHeight - $('header').height() - $('fieldset').outerHeight(true) - 25)
+		$scope.fullScreen = true
+		$scope.recalc()
 		$('#search_results').slideDown()
 	}
+
+	$scope.recalc = function () {
+		var h = $scope.fullScreen ? window.innerHeight - $('header').height() - $('fieldset').outerHeight(true) - 25 : 0
+		$('#search_results').height(h)
+	}
+
+	$(window).resize($scope.recalc)
 }])
