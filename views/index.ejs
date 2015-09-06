@@ -27,42 +27,45 @@
  </head>
  <body ng-app="main">
 
-  <div id="layout" ng-class="'wrapper layout' + (fullScreen ? ' full-screen' : '')" ng-controller="results"><div class="wrapper layout-wrapper">
+  <div id="layout" ng-class="'wrapper layout' + (fullScreen ? ' full-screen' : '')" ng-controller="results">
+    <div class="wrapper layout-wrapper">
 
-    <header role="banner" aria-label="" class="wrapper header">
-      <div class="row header-wrapper"><h1 id="typed"></h1></div>
-    </header>
+      <header role="banner" aria-label="" class="wrapper header">
+        <div class="row header-wrapper"><h1 id="typed"></h1></div>
+      </header>
 
-    <main role="main" aria-label="" class="wrapper main">
-      <form action="javascript:void(0)" method="get" class="form main-form" ng-submit="submit()">
-        <fieldset class="form-group main-field">
-          <input type="text" placeholder="How Are You Feeling?" spellcheck="true" autocomplete="off" class="form-control" ng-model="text" ng-focus="focus($event)" ng-blur="blur($event)" ng-keydown="load()" ng-keyup="load()" />
-          <input type="submit" value="Search" class="btn btn-default pull-right" />
-        </fieldset>
-      </form>
-      <div id="search_results" ng-class="'panel panel-default panel-transparent'">
-        <!-- <div class="panel"> -->
-          <div ng-repeat="result in results">
-            <div class="panel-body">
-              <h4><a id="search_res" ng-href="/treatment/{{result._id}}">{{result.name}} – {{result.description}}</a> </h4>
+      <main role="main" aria-label="" class="wrapper main">
+        <form action="javascript:void(0)" method="get" class="form main-form" ng-submit="load()">
+          <fieldset class="form-group main-field">
+            <input type="text" placeholder="How Are You Feeling?" spellcheck="true" autocomplete="off" class="form-control" ng-model="text" ng-focus="focus($event)" ng-blur="blur($event)" ng-keydown="load()" ng-keyup="load()" />
+            <input type="submit" value="Search" class="btn btn-default pull-right" />
+          </fieldset>
+        </form>
+        <div id="search_results" ng-class="'panel panel-default panel-transparent'">
+          <!-- <div class="panel"> -->
+            <div ng-repeat="result in results">
+              <div class="panel-body">
+                <h4><a id="search_res" ng-href="/treatment/{{result._id}}">{{result.name}} – {{result.description}}</a></h4>
+              </div>
             </div>
-          </div>
-        <!-- </div> -->
-     </div>
-    </main>
+          <!-- </div> -->
+       </div>
+      </main>
+    </div>
+  </div>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
   <script src="/js/controller/main.js"></script>
   <script src="/js/lib/typed.js"></script>
 
-<script>
-  $(function(){
+  <script>
+    $(function(){
       $("#typed").typed({
         strings: ["How are you feeling?", ""],
         typeSpeed: 0
       });
-  });
-</script>
+    });
+  </script>
 
 </body>
 </html>
