@@ -39,17 +39,14 @@
         <form action="javascript:void(0)" method="get" class="form main-form" ng-submit="load()">
           <fieldset class="form-group main-field">
             <input type="text" placeholder="How Are You Feeling?" spellcheck="true" autocomplete="off" class="form-control" ng-model="text" ng-focus="focus($event)" ng-blur="blur($event)" ng-keydown="load()" ng-keyup="load()" />
-            <input type="submit" value="Search" class="btn btn-default pull-right" />
           </fieldset>
         </form>
         <div id="search_results" ng-class="'panel panel-default panel-transparent'">
-          <!-- <div class="panel"> -->
-            <div ng-repeat="result in results">
-              <div class="panel-body">
-                <h4><a id="search_res" ng-href="/treatment/{{result._id}}">{{result.name}} – {{result.description}}</a></h4>
-              </div>
+          <div ng-repeat="result in results">
+            <div class="panel-body">
+              <h4><a id="search_res" ng-href="/treatment/{{result._id}}">{{result.name}} – {{result.description}}</a></h4>
             </div>
-          <!-- </div> -->
+          </div>
        </div>
       </main>
     </div>

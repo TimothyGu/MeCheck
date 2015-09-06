@@ -22,11 +22,12 @@ exports.index = function(req, res) {
  * all the objects to template.
  */
 
-exports.search = function(req, res) {
+exports.search = function(req, res, next) {
   res.status(200)
   
-  var param = req.query.q,
+  var param = req.query.q.trim(),
       regex = new RegExp(escapeRegex(param).replace(/ /g, '|'), 'i')
+console.log(regex)
   
   new User_Model({ search_value: param, lat: 'NULL', lon: 'NULL'}).save(function(err) {
     if (!err) console.log('true')
@@ -41,9 +42,10 @@ exports.search = function(req, res) {
         }
       }
     ]
-  };
+  }
   Model.find(query, function(err, result) {
-    if (!err) res.json(result)
+    if (err) return next(err)
+    res.json(result)
   })
 }
 

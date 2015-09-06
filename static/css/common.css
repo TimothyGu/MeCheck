@@ -41,13 +41,14 @@ body {
 	margin:0!important;
 	padding:0!important;
 	width:100%;
+	text-align: center;
+	text-shadow: 0 2px 4px gray;
 }
 
 .header-wrapper h1 {
 	color:#fff;
 	font-size:8em;
 	font-weight:400;
-	text-align:center;
 	text-transform:uppercase;
 }
 
@@ -56,34 +57,4 @@ body {
 .main {
 	height:auto;
 	width:auto;
-}
-
-.main-field input[type="text"] {
-	background:0 0!important;
-	border:0;
-	box-shadow:inset 0 0 6.5px 0 white;
-	color:#fff!important;
-	cursor:text;
-	float:left;
-	font-size:18px;
-	height:60px;
-	margin-right: 1%;
-	padding-left:1.25em;
-	padding-right: 1.25em;
-	position:relative;
-	width:88%!important;
-}
-
-.main-field input[type="submit"] {
-	background:0 0!important;
-	border:0;
-	box-shadow:inset 0 0 6.5px 0 rgb(255,255,255);
-	color:#fff!important;
-	cursor:pointer;
-	float:left;
-	height:60px;
-	position:relative;
-	transition:all ease-in-out;
-	transition:all ease-in-out;
-	width:10%!important;
 }
