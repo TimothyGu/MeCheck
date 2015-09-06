@@ -12,6 +12,14 @@ app.controller('results', ['$scope', '$http', function($scope, $http) {
 		}
 	}
 
+	 $scope.load = function() {
+	 	if ($scope.text) {
+			$http.get('/search?q='+$scope.text).success(function(response) {
+				$scope.results = response
+			})
+		}
+	 }
+
 	$scope.blur = function ($event) {
 		if ($scope.text) {
 			return

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-  <html class="no-js" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <html class="no-js" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head itemscope="" itemtype="http://schema.org/WebPage">
   <meta http-equiv="Content-type" content="text/html;charset=utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=yes">
@@ -36,7 +36,7 @@
     <main role="main" aria-label="" class="wrapper main">
       <form action="javascript:void(0)" method="get" class="form main-form" ng-submit="submit()">
         <fieldset class="form-group main-field">
-          <input type="text" placeholder="How Are You Feeling?" spellcheck="true" autocomplete="off" class="form-control" ng-model="text" ng-focus="focus($event)" ng-blur="blur($event)"/>
+          <input type="text" placeholder="How Are You Feeling?" spellcheck="true" autocomplete="off" class="form-control" ng-model="text" ng-focus="focus($event)" ng-blur="blur($event)" ng-keydown="load()" ng-keyup="load()" />
           <input type="submit" value="Search" class="btn btn-default pull-right" />
         </fieldset>
       </form>
@@ -63,5 +63,6 @@
       });
   });
 </script>
+
 </body>
 </html>
