@@ -20,10 +20,6 @@ body {
 	margin-right:auto;
 }
 
-.layout.full-screen {
-	height: auto;
-}
-
 .layout-wrapper {
 	display:table-cell;
 	height:100%;
