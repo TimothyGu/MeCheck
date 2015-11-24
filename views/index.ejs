@@ -38,7 +38,7 @@
       <main role="main" aria-label="" class="wrapper main">
         <form action="javascript:void(0)" method="get" class="form main-form" ng-submit="load()">
           <fieldset class="form-group main-field">
-            <input type="text" placeholder="How Are You Feeling?" spellcheck="true" autocomplete="off" class="form-control" ng-model="text" ng-focus="focus($event)" ng-blur="blur($event)" ng-keydown="load()" ng-keyup="load()" />
+            <input type="text" placeholder="Enter your symptoms…" spellcheck="true" autocomplete="off" class="form-control" ng-model="text" ng-focus="focus($event)" ng-blur="blur($event)" ng-keydown="load()" ng-keyup="load()" />
           </fieldset>
         </form>
         <div id="search_results" ng-class="'panel panel-default panel-transparent'">
@@ -59,7 +59,7 @@
   <script>
     $(function(){
       $("#typed").typed({
-        strings: ["How are you feeling?", ""],
+        strings: ["Feeling sick?", ""],
         typeSpeed: 0
       });
     });
